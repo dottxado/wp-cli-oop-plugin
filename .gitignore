@@ -1,0 +1,14 @@
+wp-cli.local.yml
+node_modules/
+*.zip
+*.tar.gz
+*.swp
+*.txt
+*.log
+composer.lock
+package-lock.json
+.idea/*
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store

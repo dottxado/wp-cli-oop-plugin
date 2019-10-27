@@ -1,0 +1,40 @@
+dottxado/wp-cli-oop-plugin
+======================
+
+Command to scaffold an OOP oriented WordPress plugin.
+The code is based on WPPB.io, with the following differences:
+* there is Composer to manage PSR-4 namespaces and file includes;
+* the "public" folder has been renamed to "front";
+* the styles and scripts are enqueued with a fingerprint
+
+
+
+Quick links: [Installing](#installing) | [Using](#using) | [Updating](#updating)
+
+## Installing
+
+Installing this package requires WP-CLI 2.0.0 or greater. Update to the latest stable release with `wp cli update` or `brew update`.
+
+Once you've done, you can install this package with:
+   
+    wp package install git@github.com:dottxado/wp-cli-oop-plugin.git
+    
+If your PHP runs out of memory, try:
+
+    php -d memory_limit=512M "$(which wp)" package install git@github.com:dottxado/wp-cli-oop-plugin.git
+
+
+## Using
+
+All the parameters are required:
+
+    wp scaffold oop-plugin --name=<plugin_name> --slug=<slug> --description=<description>  --namespace=<unique-namespace> --dev-name=<developer-name> --dev-email=<email> --plugin-url=<url>
+
+To ask for help:
+
+    wp help scaffold oop-plugin
+
+## Updating
+This command will update ALL your installed packages:
+
+    php -d memory_limit=512M "$(which wp)" package update

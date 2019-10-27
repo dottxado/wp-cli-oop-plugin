@@ -1,0 +1,32 @@
+{
+    "name": "dottxado/wp-cli-oop-plugin",
+    "description": "Command to scaffold an OOP WordPress plugin, based on WPPB.io and enriched with Composer.",
+    "keywords": [
+        "wp-cli",
+        "wordpress",
+        "scaffold",
+        "plugin",
+        "OOP"
+    ],
+    "type": "wp-cli-package",
+    "homepage": "https://www.penguinet.it",
+    "license": "GPLv3",
+    "authors": [{
+        "name": "Erika Gili",
+        "homepage": "https://www.penguinet.it",
+        "role": "Developer"
+    }],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "files": [ "command.php" ]
+    },
+    "require": {
+        "wp-cli/wp-cli": ">2.0.0"
+    },
+    "extra": {
+        "commands": [
+            "scaffold oop-plugin"
+        ]
+    }
+}
