@@ -18,7 +18,7 @@ class Penguinet_Scaffold_Plugin_Command {
 	private $plugin_folder;
 
 	/**
-	 * Scaffold the code for a new plugin
+	 * Scaffold the code for a new OOP plugin
 	 *
 	 * --name=<plugin_name>
 	 * : The plugin name
@@ -30,7 +30,7 @@ class Penguinet_Scaffold_Plugin_Command {
 	 * : The plugin description visible in the Plugins' page
 	 *
 	 * --namespace=<unique-namespace>
-	 * : The namespace to have unique configurations
+	 * : The root namespace of your plugin
 	 *
 	 * --dev-name=<developer-name>
 	 * : The developer name
@@ -39,7 +39,7 @@ class Penguinet_Scaffold_Plugin_Command {
 	 * : The developer email
 	 *
 	 * --plugin-url=<url>
-	 * : The url of the plugin and the author
+	 * : The url of the plugin
 	 *
 	 * @when after_wp_load
 	 */
