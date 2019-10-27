@@ -7,8 +7,6 @@ The code is based on WPPB.io, with the following differences:
 * the "public" folder has been renamed to "front";
 * the styles and scripts are enqueued with a fingerprint
 
-
-
 Quick links: [Installing](#installing) | [Using](#using) | [Updating](#updating)
 
 ## Installing
@@ -33,6 +31,10 @@ All the parameters are required:
 To ask for help:
 
     wp help scaffold oop-plugin
+    
+The autoload needs to be executed after the scaffold:
+
+    composer dump-autoload -o
 
 ## Updating
 This command will update ALL your installed packages:
