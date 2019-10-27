@@ -5,9 +5,9 @@ Command to scaffold an OOP oriented WordPress plugin.
 The code is based on WPPB.io, with the following differences:
 * there is Composer to manage PSR-4 namespaces and file includes;
 * the "public" folder has been renamed to "front";
-* the styles and scripts are enqueued with a fingerprint
+* the styles and scripts are enqueued with a fingerprint.
 
-Quick links: [Installing](#installing) | [Using](#using) | [Updating](#updating)
+Quick links: [Installing](#installing) | [Using](#using) | [Updating](#updating) | [Credits](#credits)
 
 ## Installing
 
@@ -40,3 +40,6 @@ The autoload needs to be executed after the scaffold:
 This command will update ALL your installed packages:
 
     php -d memory_limit=512M "$(which wp)" package update
+
+## Credits
+I'm following the path of this codebase since it was first developed by [Tom McFarlin](http://twitter.com/tommcfarlin/), then handed over to [Devin Vinson](https://twitter.com/DevinVinson) and actually can be found [here](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate).
