@@ -49,9 +49,11 @@ class Penguinet_Scaffold_Plugin_Command {
 		}
 
 		$assoc_args['ucwords-slug'] = str_replace( ' ', '_', ucwords( str_replace( '-', ' ', $assoc_args['slug'] ) ) );
-		$assoc_args['upper-slug'] = strtoupper( $assoc_args['ucwords-slug'] );
-		$assoc_args['lower-slug'] = strtolower( $assoc_args['ucwords-slug'] );
-		$this->plugin_folder      = $assoc_args['slug'];
+		$assoc_args['upper-slug']   = strtoupper( $assoc_args['ucwords-slug'] );
+		$assoc_args['lower-slug']   = strtolower( $assoc_args['ucwords-slug'] );
+		$assoc_args['namespace']    = ucfirst( $assoc_args['namespace'] );
+		$assoc_args['lower-namespace']    = strtolower( $assoc_args['namespace'] );
+		$this->plugin_folder        = $assoc_args['slug'];
 		$this->create_oop_plugin( $assoc_args );
 		WP_CLI::success( 'DONE!' );
 	}
