@@ -209,6 +209,10 @@ class Penguinet_Scaffold_Plugin_Command {
 		$filename_loader = $this->get_output_path( 'Includes/Loader.php' );
 		$this->create_files( array( $filename_loader => $content_loader ), false );
 
+		$content_uninstall  = Utils\mustache_render( "{$folder_path}Uninstaller.mustache", $assoc_args );
+		$filename_uninstall = $this->get_output_path( 'Includes/Uninstaller.php' );
+		$this->create_files( array( $filename_uninstall => $content_uninstall ), false );
+
 		$content_index  = file_get_contents( "{$folder_path}index.php" );
 		$filename_index = $this->get_output_path( 'Includes/index.php' );
 		$this->create_files( array( $filename_index => $content_index ), false );
