@@ -84,10 +84,6 @@ class Penguinet_Scaffold_Plugin_Command {
 		$filename_index = $this->get_output_path( 'index.php' );
 		$this->create_files( array( $filename_index => $content_index ), false );
 
-		$content_uninstall  = Utils\mustache_render( "{$folder_path}uninstall.mustache", $assoc_args );
-		$filename_uninstall = $this->get_output_path( 'uninstall.php' );
-		$this->create_files( array( $filename_uninstall => $content_uninstall ), false );
-
 		$content_readme  = Utils\mustache_render( "{$folder_path}READMETXT.mustache", $assoc_args );
 		$filename_readme = $this->get_output_path( 'README.txt' );
 		$this->create_files( array( $filename_readme => $content_readme ), false );

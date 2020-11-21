@@ -75,9 +75,9 @@ function uninstall_{{lower-slug}}() {
 }
 
 
-register_activation_hook( __FILE__, '{{namespace}}\{{lower-slug}}\activate_{{lower-slug}}' );
-register_deactivation_hook( __FILE__, '{{namespace}}\{{lower-slug}}\deactivate_{{lower-slug}}' );
-register_uninstall_hook( __FILE__, '{{namespace}}\{{lower-slug}}\uninstall_{{lower-slug}}' );
+register_activation_hook( __FILE__, '{{namespace}}\{{ucwords-slug}}\activate_{{lower-slug}}' );
+register_deactivation_hook( __FILE__, '{{namespace}}\{{ucwords-slug}}\deactivate_{{lower-slug}}' );
+register_uninstall_hook( __FILE__, '{{namespace}}\{{ucwords-slug}}\uninstall_{{lower-slug}}' );
 
 /**
  * Begins execution of the plugin.
