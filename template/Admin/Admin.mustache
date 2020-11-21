@@ -11,6 +11,8 @@
 
 namespace {{namespace}}\{{ucwords-slug}}\Admin;
 
+use const {{namespace}}\{{ucwords-slug}}\PLUGIN_NAME;
+
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -24,35 +26,34 @@ namespace {{namespace}}\{{ucwords-slug}}\Admin;
 class Admin {
 
 	/**
-	 * The ID of this plugin.
+	 * Singleton instance
 	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string $plugin_name The ID of this plugin.
+	 * @var Admin $instance This instance.
 	 */
-	private $plugin_name;
+	private static $instance = null;
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string $version The current version of this plugin.
-	 */
-	private $version;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string $plugin_name The name of this plugin.
-	 * @param      string $version The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	private function __construct() {
 
-		$this->plugin_name = $plugin_name;
-		$this->version     = $version;
+	}
 
+	/**
+	 * Get class instance
+	 *
+	 * @return Admin
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$instance ) ) {
+			$c              = __CLASS__;
+			self::$instance = new $c();
+		}
+
+		return self::$instance;
 	}
 
 	/**
@@ -63,7 +64,7 @@ class Admin {
 	public function enqueue_styles() {
 
 		wp_enqueue_style(
-			$this->plugin_name,
+			PLUGIN_NAME,
 			plugin_dir_url( __FILE__ ) . 'css/admin.css',
 			array(),
 			filemtime( plugin_dir_path( __FILE__ ) . 'css/admin.css' ),
@@ -80,7 +81,7 @@ class Admin {
 	public function enqueue_scripts() {
 
 		wp_enqueue_script(
-			$this->plugin_name,
+			PLUGIN_NAME,
 			plugin_dir_url( __FILE__ ) . 'js/admin.js',
 			array( 'jquery' ),
 			filemtime( plugin_dir_path( __FILE__ ) . 'js/admin.js' ),

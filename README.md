@@ -5,7 +5,8 @@ Command to scaffold an OOP oriented WordPress plugin.
 The scaffolded code is based on WPPB.io, with the following differences:
 * there is Composer to manage PSR-4 namespaces and file includes;
 * the "public" folder has been renamed to "front";
-* the styles and scripts are enqueued with a fingerprint.
+* the styles and scripts are enqueued with a fingerprint;
+* the plugin classes are singletons.
 
 Quick links: [Installing](#installing) | [Using](#using) | [Updating](#updating) | [Credits](#credits)
 
