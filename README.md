@@ -14,9 +14,9 @@ Quick links: [Installing](#installing) | [Using](#using) | [Updating](#updating)
 Installing this package requires WP-CLI 2.0.0 or greater. Update to the latest stable release with `wp cli update` or `brew update`.
 
 Once you've done, you can install this package with:
-   
+
     wp package install git@github.com:dottxado/wp-cli-oop-plugin.git
-    
+
 If your PHP runs out of memory, try:
 
     php -d memory_limit=512M "$(which wp)" package install git@github.com:dottxado/wp-cli-oop-plugin.git
@@ -31,10 +31,10 @@ All the parameters are required:
 To ask for help:
 
     wp help scaffold oop-plugin
-    
+
 The autoload needs to be executed after the scaffold:
 
-    composer dump-autoload -o
+    composer dump-autoload
 
 ## Updating
 This command will update ALL your installed packages:

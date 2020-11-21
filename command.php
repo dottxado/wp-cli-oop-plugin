@@ -188,7 +188,7 @@ class Penguinet_Scaffold_Plugin_Command {
 		$folder_path = $template_path . 'Includes/';
 		$this->create_folder( 'Includes' );
 		$content_class  = Utils\mustache_render( "{$folder_path}plugin-name.mustache", $assoc_args );
-		$filename_class = $this->get_output_path( 'Includes/class-' . $assoc_args['slug'] . '.php' );
+		$filename_class = $this->get_output_path( 'Includes/' . $assoc_args['ucwords-slug'] . '.php' );
 		$this->create_files( array( $filename_class => $content_class ), false );
 
 		$content_activator  = Utils\mustache_render( "{$folder_path}Activator.mustache", $assoc_args );
