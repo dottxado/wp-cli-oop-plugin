@@ -12,7 +12,7 @@
  * @subpackage {{ucwords-slug}}/includes
  */
 
-namespace {{namespace}}\{{lower-slug}}_includes;
+namespace {{namespace}}\{{lower-slug}}\includes;
 
 /**
  * Define the internationalization functionality.
@@ -38,7 +38,7 @@ class I18n {
 		load_plugin_textdomain(
 			'{{slug}}',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/Languages/'
 		);
 
 	}

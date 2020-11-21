@@ -3,9 +3,12 @@
 	"description": "{{description}}",
 	"autoload": {
 		"psr-4": {
-			"{{namespace}}\\{{lower-slug}}_admin\\": "admin/",
-			"{{namespace}}\\{{lower-slug}}_front\\": "front/",
-			"{{namespace}}\\{{lower-slug}}_includes\\": "includes/"
+			"{{namespace}}\\{{lower-slug}}\\Admin\\": "Admin/",
+			"{{namespace}}\\{{lower-slug}}\\Front\\": "Front/",
+			"{{namespace}}\\{{lower-slug}}\\Includes\\": "Includes/"
 		}
-	}
+	},
+	"config": {
+        "optimize-autoloader": true
+      }
 }

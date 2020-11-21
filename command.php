@@ -30,7 +30,7 @@ class Penguinet_Scaffold_Plugin_Command {
 	 * : The plugin description visible in the Plugins' page
 	 *
 	 * --namespace=<unique-namespace>
-	 * : The root namespace of your plugin
+	 * : The vendor namespace of your plugin
 	 *
 	 * --dev-name=<developer-name>
 	 * : The developer name
@@ -48,7 +48,7 @@ class Penguinet_Scaffold_Plugin_Command {
 			WP_CLI::error( "Invalid slug specified. Plugin slugs can contain only lowercase alphanumeric characters or dashes, and start with a letter." );
 		}
 
-		$assoc_args['ucwords-slug'] = str_replace( ' ', '_', ucwords( str_replace( '-', ' ', $assoc_args['slug'] ) ) );;
+		$assoc_args['ucwords-slug'] = str_replace( ' ', '_', ucwords( str_replace( '-', ' ', $assoc_args['slug'] ) ) );
 		$assoc_args['upper-slug'] = strtoupper( $assoc_args['ucwords-slug'] );
 		$assoc_args['lower-slug'] = strtolower( $assoc_args['ucwords-slug'] );
 		$this->plugin_folder      = $assoc_args['slug'];
@@ -97,14 +97,14 @@ class Penguinet_Scaffold_Plugin_Command {
 		/**
 		 * Admin folder
 		 */
-		$folder_path = $template_path . 'admin/';
-		$this->create_folder( 'admin' );
-		$content_class  = Utils\mustache_render( "{$folder_path}class-admin.mustache", $assoc_args );
-		$filename_class = $this->get_output_path( 'admin/class-admin.php' );
+		$folder_path = $template_path . 'Admin/';
+		$this->create_folder( 'Admin' );
+		$content_class  = Utils\mustache_render( "{$folder_path}Admin.mustache", $assoc_args );
+		$filename_class = $this->get_output_path( 'Admin/Admin.php' );
 		$this->create_files( array( $filename_class => $content_class ), false );
 
 		$content_index  = file_get_contents( "{$folder_path}index.php" );
-		$filename_index = $this->get_output_path( 'admin/index.php' );
+		$filename_index = $this->get_output_path( 'Admin/index.php' );
 		$this->create_files( array( $filename_index => $content_index ), false );
 
 		/**
@@ -113,7 +113,7 @@ class Penguinet_Scaffold_Plugin_Command {
 		$css_path = $folder_path . 'css/';
 
 		$content  = Utils\mustache_render( "{$css_path}admin.mustache", $assoc_args );
-		$filename = $this->get_output_path( 'admin/css/admin.css' );
+		$filename = $this->get_output_path( 'Admin/css/admin.css' );
 		$this->create_files( array( $filename => $content ), false );
 
 		/**
@@ -122,7 +122,7 @@ class Penguinet_Scaffold_Plugin_Command {
 		$js_path = $folder_path . 'js/';
 
 		$content  = file_get_contents( "{$js_path}admin.js" );
-		$filename = $this->get_output_path( 'admin/js/admin.js' );
+		$filename = $this->get_output_path( 'Admin/js/admin.js' );
 		$this->create_files( array( $filename => $content ), false );
 
 		/**
@@ -130,20 +130,20 @@ class Penguinet_Scaffold_Plugin_Command {
 		 */
 		$partials_path = $folder_path . 'partials/';
 		$content       = Utils\mustache_render( "{$partials_path}admin-display.mustache", $assoc_args );
-		$filename      = $this->get_output_path( 'admin/partials/admin-display.php' );
+		$filename      = $this->get_output_path( 'Admin/partials/admin-display.php' );
 		$this->create_files( array( $filename => $content ), false );
 
 		/**
 		 * Front folder
 		 */
-		$folder_path = $template_path . 'front/';
-		$this->create_folder( 'front' );
-		$content_class  = Utils\mustache_render( "{$folder_path}class-front.mustache", $assoc_args );
-		$filename_class = $this->get_output_path( 'front/class-front.php' );
+		$folder_path = $template_path . 'Front/';
+		$this->create_folder( 'Front' );
+		$content_class  = Utils\mustache_render( "{$folder_path}Front.mustache", $assoc_args );
+		$filename_class = $this->get_output_path( 'Front/Front.php' );
 		$this->create_files( array( $filename_class => $content_class ), false );
 
 		$content_index  = file_get_contents( "{$folder_path}index.php" );
-		$filename_index = $this->get_output_path( 'front/index.php' );
+		$filename_index = $this->get_output_path( 'Front/index.php' );
 		$this->create_files( array( $filename_index => $content_index ), false );
 
 		/**
@@ -152,7 +152,7 @@ class Penguinet_Scaffold_Plugin_Command {
 		$css_path = $folder_path . 'css/';
 
 		$content  = file_get_contents( "{$css_path}front.css" );
-		$filename = $this->get_output_path( 'front/css/front.css' );
+		$filename = $this->get_output_path( 'Front/css/front.css' );
 		$this->create_files( array( $filename => $content ), false );
 
 		/**
@@ -161,7 +161,7 @@ class Penguinet_Scaffold_Plugin_Command {
 		$js_path = $folder_path . 'js/';
 
 		$content  = file_get_contents( "{$js_path}front.js" );
-		$filename = $this->get_output_path( 'front/js/front.js' );
+		$filename = $this->get_output_path( 'Front/js/front.js' );
 		$this->create_files( array( $filename => $content ), false );
 
 		/**
@@ -169,46 +169,46 @@ class Penguinet_Scaffold_Plugin_Command {
 		 */
 		$partials_path = $folder_path . 'partials/';
 		$content       = Utils\mustache_render( "{$partials_path}front-display.mustache", $assoc_args );
-		$filename      = $this->get_output_path( 'front/partials/front-display.php' );
+		$filename      = $this->get_output_path( 'Front/partials/front-display.php' );
 		$this->create_files( array( $filename => $content ), false );
 
 		/**
 		 * Languages folder
 		 */
-		$folder_path = $template_path . 'languages/';
-		$this->create_folder( 'languages' );
+		$folder_path = $template_path . 'Languages/';
+		$this->create_folder( 'Languages' );
 
 		$content  = file_get_contents( "{$folder_path}plugin-name.pot" );
-		$filename = $this->get_output_path( 'languages/' . $assoc_args['slug'] . '.pot' );
+		$filename = $this->get_output_path( 'Languages/' . $assoc_args['slug'] . '.pot' );
 		$this->create_files( array( $filename => $content ), false );
 
 		/**
 		 * Includes folder
 		 */
-		$folder_path = $template_path . 'includes/';
-		$this->create_folder( 'includes' );
-		$content_class  = Utils\mustache_render( "{$folder_path}class-plugin-name.mustache", $assoc_args );
-		$filename_class = $this->get_output_path( 'includes/class-' . $assoc_args['slug'] . '.php' );
+		$folder_path = $template_path . 'Includes/';
+		$this->create_folder( 'Includes' );
+		$content_class  = Utils\mustache_render( "{$folder_path}plugin-name.mustache", $assoc_args );
+		$filename_class = $this->get_output_path( 'Includes/class-' . $assoc_args['slug'] . '.php' );
 		$this->create_files( array( $filename_class => $content_class ), false );
 
-		$content_activator  = Utils\mustache_render( "{$folder_path}class-activator.mustache", $assoc_args );
-		$filename_activator = $this->get_output_path( 'includes/class-activator.php' );
+		$content_activator  = Utils\mustache_render( "{$folder_path}Activator.mustache", $assoc_args );
+		$filename_activator = $this->get_output_path( 'Includes/Activator.php' );
 		$this->create_files( array( $filename_activator => $content_activator ), false );
 
-		$content_deactivator  = Utils\mustache_render( "{$folder_path}class-deactivator.mustache", $assoc_args );
-		$filename_deactivator = $this->get_output_path( 'includes/class-deactivator.php' );
+		$content_deactivator  = Utils\mustache_render( "{$folder_path}Deactivator.mustache", $assoc_args );
+		$filename_deactivator = $this->get_output_path( 'Includes/Deactivator.php' );
 		$this->create_files( array( $filename_deactivator => $content_deactivator ), false );
 
-		$content_i18n  = Utils\mustache_render( "{$folder_path}class-i18n.mustache", $assoc_args );
-		$filename_i18n = $this->get_output_path( 'includes/class-i18n.php' );
+		$content_i18n  = Utils\mustache_render( "{$folder_path}I18n.mustache", $assoc_args );
+		$filename_i18n = $this->get_output_path( 'Includes/I18n.php' );
 		$this->create_files( array( $filename_i18n => $content_i18n ), false );
 
-		$content_loader  = Utils\mustache_render( "{$folder_path}class-loader.mustache", $assoc_args );
-		$filename_loader = $this->get_output_path( 'includes/class-loader.php' );
+		$content_loader  = Utils\mustache_render( "{$folder_path}Loader.mustache", $assoc_args );
+		$filename_loader = $this->get_output_path( 'Includes/Loader.php' );
 		$this->create_files( array( $filename_loader => $content_loader ), false );
 
 		$content_index  = file_get_contents( "{$folder_path}index.php" );
-		$filename_index = $this->get_output_path( 'includes/index.php' );
+		$filename_index = $this->get_output_path( 'Includes/index.php' );
 		$this->create_files( array( $filename_index => $content_index ), false );
 
 	}
